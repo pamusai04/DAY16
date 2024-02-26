@@ -1,0 +1,10 @@
+//problem  1   
+//1.Write a java program to demonstrate Syntax, logical and return errors 
+public class DAY16_PQ1{
+  public static void main (String [] args){
+    //Sysntax error - int a= 7
+    int age = 78;
+    int yyear_born = 2000 - 78 ; //Logical error 
+    System.out.println(6/0);    // Arithmetic Exception 
+  }
+}

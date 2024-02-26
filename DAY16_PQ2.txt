@@ -1,0 +1,17 @@
+//problem  2
+//2.Write a java program that prints " haha" during Arithmetic exception and "hehe" during an Illegal argument exception 
+public class DAY16_PQ2 {
+	public static void main(String[] args) {
+    		try{
+			int a=666/0;
+      
+    		}
+    		catch (IllegalArgumentException e){
+     			System.out.println("HeHe");
+    		}
+    		catch(ArithmeticException e){
+      			System.out.println("Haha");
+    		}
+  	}
+
+}

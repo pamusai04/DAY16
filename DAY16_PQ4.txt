@@ -1,0 +1,46 @@
+//problem  4
+//4.modify program in Q3 to throw a custom Exception if max retries are reached 
+
+import java.util.*;
+class CustomException extends Exception {
+    public CustomException(String message) {
+        super(message);
+    }
+}
+public class DAY16_PQ4{
+      public static void main(String[] args) {
+      boolean flag = true;
+      int[] marks = { 7, 56, 6 };
+      Scanner sc = new Scanner(System.in);
+      int i = 0;
+      final int MAX_RETRIES = 5;
+
+      while (flag && i < MAX_RETRIES) {
+          try {
+              System.out.println("Enter the value of index");
+              int index = sc.nextInt();
+
+              if (index < 0 || index >= marks.length) {
+                  throw new IndexOutOfBoundsException("Index is out of bounds");
+              }
+
+              System.out.println("The value of marks[index] is " + marks[index]);
+              flag = false;
+          } catch (InputMismatchException e) {
+              System.out.println("Invalid input. Please enter a valid integer.");
+              sc.next(); // Consume the invalid input to avoid an infinite loop
+          } catch (IndexOutOfBoundsException e) {
+              System.out.println("Invalid Index");
+              i++;
+          }
+      }
+
+      if (i >= MAX_RETRIES) {
+          try {
+              throw new CustomException("Max retries reached. Exiting program.");
+          } catch (CustomException e) {
+              System.out.println(e.getMessage());
+          }
+      }
+  }
+}
